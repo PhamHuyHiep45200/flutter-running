@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:working_app/consts/colors.dart';
+import 'package:working_app/consts/font_size.dart';
 import 'package:working_app/consts/router.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -10,20 +12,30 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
     _timeOutHandle();
   }
 
   Future _timeOutHandle() async {
-    await Future.delayed(const Duration(seconds: 2), ()=>{
-      Navigator.pushNamed(context, AppScreen.login)
-    });
+    await Future.delayed(
+      const Duration(seconds: 2),
+      () => {Navigator.pushNamed(context, AppScreen.guid)},
+    );
   }
+
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: AppColor.primary,
       body: Center(
-        child: Text('Splash Screen'),
+        child: Text(
+          'Travenor',
+          style: TextStyle(
+            color: AppColor.white,
+            fontSize: AppFontSize.s30,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
     );
   }
