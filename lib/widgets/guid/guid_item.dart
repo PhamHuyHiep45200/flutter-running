@@ -10,11 +10,17 @@ class GuidItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.network(
-          thumbnail,
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height * 0.5,
-          fit: BoxFit.cover,
+        ClipRRect(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(30),
+            bottomRight: Radius.circular(30),
+          ),
+          child: Image.network(
+            thumbnail,
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.5,
+            fit: BoxFit.cover,
+          ),
         ),
         Padding(
           padding: EdgeInsets.fromLTRB(40, 40, 40, 0),
