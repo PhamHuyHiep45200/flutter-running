@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:working_app/consts/colors.dart';
+import 'package:working_app/consts/font_size.dart';
 import 'package:working_app/consts/router.dart';
 import 'package:working_app/widgets/common/button.dart';
 import 'package:working_app/widgets/guid/guid_item.dart';
@@ -44,20 +45,53 @@ class _TourGuidPageState extends State<TourGuidPage> {
     );
   }
 
+  void handleSkip() {
+    // handle skip guid
+    Navigator.pushNamed(context, AppScreen.login);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Expanded(
-          child: PageView(
-            onPageChanged: (value) {
-              setState(() {
-                paginationActive = value;
-              });
-            },
-            controller: controller,
-            scrollDirection: Axis.horizontal,
-            children: thumbnails.map((e) => GuidItem(thumbnail: e)).toList(),
+          child: Stack(
+            children: [
+              PageView(
+                onPageChanged: (value) {
+                  setState(() {
+                    paginationActive = value;
+                  });
+                },
+                controller: controller,
+                scrollDirection: Axis.horizontal,
+                children: thumbnails
+                    .map((e) => GuidItem(thumbnail: e))
+                    .toList(),
+              ),
+              Positioned(
+                top: MediaQuery.of(context).size.height * 0.08,
+                right: 20,
+                child: InkWell(
+                  onTap: handleSkip,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Color.fromRGBO(0, 0, 0, 0.3),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    child: Text(
+                      'Skip',
+                      style: TextStyle(
+                        color: AppColor.white,
+                        fontSize: AppFontSize.s14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         Padding(

@@ -18,7 +18,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // MaterialApp contains our top-level Navigator
-      theme: ThemeData(fontFamily: 'Poppins'),
+      theme: ThemeData(
+        fontFamily: 'Poppins',
+        pageTransitionsTheme: PageTransitionsTheme(
+          builders: {TargetPlatform.android: CupertinoPageTransitionsBuilder()},
+        ),
+      ),
       initialRoute: AppScreen.splash,
       routes: <String, WidgetBuilder>{
         AppScreen.splash: (BuildContext context) => const SplashScreen(),
