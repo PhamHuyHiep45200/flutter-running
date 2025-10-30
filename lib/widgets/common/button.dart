@@ -27,7 +27,7 @@ class ButtonTravel extends StatelessWidget {
         ),
         height: height,
         width: width ?? double.infinity,
-        alignment: AlignmentGeometry.center,
+        alignment: Alignment.center,
         child: Text(
           text,
           textAlign: TextAlign.center,

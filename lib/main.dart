@@ -3,6 +3,7 @@ import 'package:working_app/consts/router.dart';
 import 'package:working_app/screens/guids/guids_screen.dart';
 import 'package:working_app/screens/home/home_screen.dart';
 import 'package:working_app/screens/login/login_screen.dart';
+import 'package:working_app/screens/register/register_screen.dart';
 import 'package:working_app/screens/splash/splash_screen.dart';
 
 void main() {
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         AppScreen.splash: (BuildContext context) => const SplashScreen(),
         AppScreen.guid: (BuildContext context) => const GuidTour(),
         AppScreen.login: (BuildContext context) => const LoginScreen(),
+        AppScreen.register: (BuildContext context) => const RegisterScreen(),
         AppScreen.home: (BuildContext context) => const HomeScreen(),
       },
     );

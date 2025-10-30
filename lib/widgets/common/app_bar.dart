@@ -10,8 +10,13 @@ class AppBarTravel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        InkWell(
-          borderRadius: BorderRadius.circular(100),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
+            color: AppColor.lightGray,
+          ),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          margin: EdgeInsets.symmetric(horizontal: 20),
           child: SvgPicture.asset(AppSvg.arrow),
         ),
       ],

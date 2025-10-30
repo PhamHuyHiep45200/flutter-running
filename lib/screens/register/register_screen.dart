@@ -4,20 +4,19 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:working_app/consts/colors.dart';
 import 'package:working_app/consts/font_size.dart';
-import 'package:working_app/consts/router.dart';
 import 'package:working_app/consts/svg.dart';
 import 'package:working_app/widgets/common/app_bar.dart';
 import 'package:working_app/widgets/common/button.dart';
 import 'package:working_app/widgets/common/input.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   int count = 0;
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
@@ -130,10 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {
-                                        Navigator.pushNamed(
-                                          context,
-                                          AppScreen.register,
-                                        );
+                                        print('object');
                                       },
                                   ),
                                 ],
