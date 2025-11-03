@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:working_app/consts/colors.dart';
 import 'package:working_app/consts/font_size.dart';
+import 'package:working_app/consts/router.dart';
 import 'package:working_app/extentions/widget_extentions.dart';
+import 'package:working_app/navigations/navigation_service.dart';
 import 'package:working_app/widgets/common/card_container.dart';
 import 'package:working_app/widgets/home/card_best_destination.dart';
 
@@ -88,7 +90,7 @@ class _HomeBottomScreenState extends State<HomeBottomScreen> {
                               key: ValueKey(e),
                               child: CardBestDestination(),
                             ).onTap(() {
-                              print('redirect to ');
+                              NavigationService.goNamed(AppScreen.detailTravel);
                             }),
                       ),
                     )
