@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:working_app/consts/colors.dart';
 import 'package:working_app/consts/font_size.dart';
-import 'package:working_app/widgets/common/app_header.dart';
 import 'package:working_app/widgets/common/card_container.dart';
+import 'package:working_app/widgets/home/card_best_destination.dart';
 
 class HomeBottomScreen extends StatefulWidget {
   const HomeBottomScreen({super.key});
@@ -13,6 +13,8 @@ class HomeBottomScreen extends StatefulWidget {
 }
 
 class _HomeBottomScreenState extends State<HomeBottomScreen> {
+  final List<int> destinations = [1, 2, 3, 4, 5];
+  final pageController = PageController(viewportFraction: 0.8);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -69,33 +71,13 @@ class _HomeBottomScreenState extends State<HomeBottomScreen> {
               ],
             ),
             Gap(16),
-            CardContainer(
-              child: Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadiusGeometry.circular(20),
-                    child: Image.network(
-                      'https://images.baodantoc.vn/uploads/2023/Thang-10/Ngay-13/Truong-Thuan/1.jpg',
-                    ),
-                  ),
-                  Gap(14),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Niladri Reservoir',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: AppFontSize.s18,
-                          fontWeight: FontWeight.w500,
-                          color: AppColor.lightText,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Gap(8)
-                ],
+            SizedBox(
+              height: 384,
+              child: PageView(
+                controller: pageController,
+                children: destinations
+                    .map((e) => CardContainer(child: CardBestDestination()))
+                    .toList(),
               ),
             ),
           ],

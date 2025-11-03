@@ -39,6 +39,7 @@ dependencies:
   flutter_svg: ^2.2.1
   gap: ^3.0.1
   flutter_otp_text_field: ^1.5.1+1
+  avatar_stack: ^3.0.0
 
 dev_dependencies:
   flutter_test:
