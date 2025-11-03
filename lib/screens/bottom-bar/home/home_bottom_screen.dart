@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:working_app/consts/colors.dart';
@@ -18,6 +19,7 @@ class HomeBottomScreen extends StatefulWidget {
 class _HomeBottomScreenState extends State<HomeBottomScreen> {
   final List<int> destinations = [1, 2, 3, 4, 5];
   final pageController = PageController(viewportFraction: 0.8);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,12 +42,26 @@ class _HomeBottomScreenState extends State<HomeBottomScreen> {
             ),
             SizedBox(
               width: double.infinity,
-              child: Text(
-                'Beautiful world!',
-                style: TextStyle(
-                  fontSize: AppFontSize.s38,
-                  fontWeight: FontWeight.bold,
-                  color: AppColor.lightText,
+              child: RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Beautiful',
+                      style: TextStyle(
+                        fontSize: AppFontSize.s38,
+                        fontWeight: FontWeight.bold,
+                        color: AppColor.lightText,
+                      ),
+                    ),
+                    TextSpan(
+                      text: ' World!',
+                      style: TextStyle(
+                        fontSize: AppFontSize.s38,
+                        fontWeight: FontWeight.bold,
+                        color: AppColor.orange,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -76,13 +92,12 @@ class _HomeBottomScreenState extends State<HomeBottomScreen> {
             Gap(16),
             SizedBox(
               height: 384,
-              child: PageView(
-                controller: pageController,
-                children: destinations
+              child: CarouselSlider(
+                items: destinations
                     .map(
                       (e) => Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: 20,
+                          horizontal: 10,
                           vertical: 10,
                         ),
                         child:
@@ -95,6 +110,18 @@ class _HomeBottomScreenState extends State<HomeBottomScreen> {
                       ),
                     )
                     .toList(),
+                options: CarouselOptions(
+                  height: 384,
+                  // aspectRatio: 16 / 9,
+                  viewportFraction: 0.8,
+                  initialPage: 0,
+                  enableInfiniteScroll: false,
+                  reverse: false,
+                  enlargeCenterPage: false,
+                  padEnds: false,
+                  enlargeFactor: 0.3,
+                  scrollDirection: Axis.horizontal,
+                ),
               ),
             ),
           ],

@@ -1,6 +1,12 @@
 import 'dart:async';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:working_app/consts/colors.dart';
+import 'package:working_app/consts/font_size.dart';
+import 'package:working_app/extentions/widget_extentions.dart';
+import 'package:working_app/widgets/common/app_bar.dart';
+import 'package:working_app/widgets/common/button.dart';
 
 class DetailTravelScreen extends StatefulWidget {
   const DetailTravelScreen({super.key});
@@ -11,33 +17,15 @@ class DetailTravelScreen extends StatefulWidget {
 
 class _DetailTravelScreenState extends State<DetailTravelScreen> {
   final List<int> thumbnails = [1, 2, 3];
-  final PageController pageController = PageController();
-
-  @override
-  void initState() {
-    super.initState();
-    Timer.periodic(Duration(seconds: 2), (Timer timer) {
-      pageController.nextPage(
-        duration: Duration(milliseconds: 400),
-        curve: Curves.ease,
-      );
-    });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    pageController.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          PageView(
-            controller: pageController,
-            children: thumbnails
+          Positioned(top: 40,child: AppBarTravel()),
+          CarouselSlider(
+            items: thumbnails
                 .map(
                   (e) => SizedBox(
                     child: Image.network(
@@ -47,8 +35,61 @@ class _DetailTravelScreenState extends State<DetailTravelScreen> {
                   ),
                 )
                 .toList(),
+            options: CarouselOptions(
+              height: MediaQuery.of(context).size.height,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 6),
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayCurve: Curves.ease,
+              scrollDirection: Axis.horizontal,
+              viewportFraction: 1,
+            ),
           ),
-          Positioned(child: Container()),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 200,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    AppColor.lightText.withOpacity(1),
+                    AppColor.lightText.withOpacity(0.2),
+                  ],
+                  begin: AlignmentGeometry.bottomCenter,
+                  end: AlignmentGeometry.topCenter,
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        'Niladri Reservoir',
+                        style: TextStyle(
+                          color: AppColor.lightGray,
+                          fontWeight: FontWeight.w600,
+                          fontSize: AppFontSize.s16
+                        ),
+                      ).align(Alignment.topLeft),
+                      Text(
+                        'You will get a complete travel package on the beaches. Packages in the form of airline tickets, recommended Hotel rooms, Transportation, Have you ever been on holiday to the Greek ETC...',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: AppColor.lightGray),
+                      ).align(Alignment.topLeft),
+                    ],
+                  ),
+                  ButtonTravel(text: 'Explore'),
+                ],
+              ).padding(EdgeInsets.fromLTRB(20, 10, 20, 40)),
+            ),
+          ),
         ],
       ),
     );

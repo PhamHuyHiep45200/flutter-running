@@ -1,0 +1,1 @@
+enum ModeHeaderBar { light, dark }
