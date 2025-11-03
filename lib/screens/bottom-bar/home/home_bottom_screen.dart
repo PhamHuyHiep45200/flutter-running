@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:working_app/consts/colors.dart';
 import 'package:working_app/consts/font_size.dart';
+import 'package:working_app/extentions/widget_extentions.dart';
 import 'package:working_app/widgets/common/card_container.dart';
 import 'package:working_app/widgets/home/card_best_destination.dart';
 
@@ -75,7 +76,6 @@ class _HomeBottomScreenState extends State<HomeBottomScreen> {
               height: 384,
               child: PageView(
                 controller: pageController,
-
                 children: destinations
                     .map(
                       (e) => Padding(
@@ -83,7 +83,13 @@ class _HomeBottomScreenState extends State<HomeBottomScreen> {
                           horizontal: 20,
                           vertical: 10,
                         ),
-                        child: CardContainer(child: CardBestDestination()),
+                        child:
+                            CardContainer(
+                              key: ValueKey(e),
+                              child: CardBestDestination(),
+                            ).onTap(() {
+                              print('redirect to ');
+                            }),
                       ),
                     )
                     .toList(),

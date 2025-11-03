@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:working_app/consts/router.dart';
+import 'package:working_app/screens/detail-travel/detail_travel_screen.dart';
 import 'package:working_app/screens/forgot-pass-verify/forgot_pass_verify_screen.dart';
 import 'package:working_app/screens/forgot-pass/forgot_pass_screen.dart';
 import 'package:working_app/screens/guids/guids_screen.dart';
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         AppScreen.forgotPassword: (BuildContext context) => const ForgotPassScreen(),
         AppScreen.forgotPasswordVerify: (BuildContext context) => const ForgotPassVerifyScreen(),
         AppScreen.home: (BuildContext context) => const HomeScreen(),
+        AppScreen.detailTravel: (BuildContext context) => const DetailTravelScreen(),
       },
     );
   }
