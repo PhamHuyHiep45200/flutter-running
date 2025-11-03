@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:working_app/consts/colors.dart';
 import 'package:working_app/consts/font_size.dart';
 import 'package:working_app/consts/router.dart';
+import 'package:working_app/navigations/navigation_service.dart';
 import 'package:working_app/widgets/common/app_bar.dart';
 import 'package:working_app/widgets/common/button.dart';
 import 'package:working_app/widgets/common/input.dart';
@@ -21,7 +22,7 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
   final _emailController = TextEditingController();
 
   void handleVerify() {
-    Navigator.pushNamed(context, AppScreen.forgotPasswordVerify);
+    NavigationService.goNamed(AppScreen.forgotPasswordVerify);
   }
 
   @override

@@ -6,6 +6,7 @@ import 'package:working_app/consts/colors.dart';
 import 'package:working_app/consts/font_size.dart';
 import 'package:working_app/consts/router.dart';
 import 'package:working_app/consts/svg.dart';
+import 'package:working_app/navigations/navigation_service.dart';
 import 'package:working_app/widgets/common/app_bar.dart';
 import 'package:working_app/widgets/common/button.dart';
 import 'package:working_app/widgets/common/input.dart';
@@ -132,8 +133,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
-                                      Navigator.pushNamed(
-                                        context,
+                                      NavigationService.goNamed(
                                         AppScreen.login,
                                       );
                                     },

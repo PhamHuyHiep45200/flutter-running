@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:working_app/consts/colors.dart';
 import 'package:working_app/consts/font_size.dart';
 import 'package:working_app/consts/router.dart';
+import 'package:working_app/navigations/navigation_service.dart';
 import 'package:working_app/widgets/common/button.dart';
 import 'package:working_app/widgets/guid/guid_item.dart';
 
@@ -35,9 +36,9 @@ class _TourGuidPageState extends State<TourGuidPage> {
     return {...result, paginationActive: 35.0};
   }
 
-  Future<dynamic> handleNext() {
+  Future<dynamic> handleNext() async {
     if (paginationActive == 2) {
-      return Navigator.pushNamed(context, AppScreen.login);
+      return NavigationService.goNamed(AppScreen.login);
     }
     return controller.nextPage(
       duration: Duration(milliseconds: 400),
@@ -47,7 +48,7 @@ class _TourGuidPageState extends State<TourGuidPage> {
 
   void handleSkip() {
     // handle skip guid
-    Navigator.pushNamed(context, AppScreen.login);
+    NavigationService.goNamed(AppScreen.login);
   }
 
   @override

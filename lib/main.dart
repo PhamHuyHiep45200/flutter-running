@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:working_app/consts/router.dart';
+import 'package:working_app/navigations/navigation_service.dart';
 import 'package:working_app/screens/detail-travel/detail_travel_screen.dart';
 import 'package:working_app/screens/forgot-pass-verify/forgot_pass_verify_screen.dart';
 import 'package:working_app/screens/forgot-pass/forgot_pass_screen.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       // MaterialApp contains our top-level Navigator
       theme: ThemeData(
@@ -28,18 +29,7 @@ class MyApp extends StatelessWidget {
           builders: {TargetPlatform.android: CupertinoPageTransitionsBuilder()},
         ),
       ),
-      
-      initialRoute: AppScreen.splash,
-      routes: <String, WidgetBuilder>{
-        AppScreen.splash: (BuildContext context) => const SplashScreen(),
-        AppScreen.guid: (BuildContext context) => const GuidTour(),
-        AppScreen.login: (BuildContext context) => const LoginScreen(),
-        AppScreen.register: (BuildContext context) => const RegisterScreen(),
-        AppScreen.forgotPassword: (BuildContext context) => const ForgotPassScreen(),
-        AppScreen.forgotPasswordVerify: (BuildContext context) => const ForgotPassVerifyScreen(),
-        AppScreen.home: (BuildContext context) => const HomeScreen(),
-        AppScreen.detailTravel: (BuildContext context) => const DetailTravelScreen(),
-      },
+      routerConfig: NavigationService.router,
     );
   }
 }

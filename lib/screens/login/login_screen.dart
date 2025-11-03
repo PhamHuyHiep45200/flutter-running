@@ -6,7 +6,7 @@ import 'package:working_app/consts/colors.dart';
 import 'package:working_app/consts/font_size.dart';
 import 'package:working_app/consts/router.dart';
 import 'package:working_app/consts/svg.dart';
-import 'package:working_app/widgets/common/app_bar.dart';
+import 'package:working_app/navigations/navigation_service.dart';
 import 'package:working_app/widgets/common/button.dart';
 import 'package:working_app/widgets/common/input.dart';
 
@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordController = TextEditingController();
 
   void handleLogin() {
-    Navigator.pushNamed(context, AppScreen.home);
+    NavigationService.goNamed(AppScreen.home);
     // if (_formKey.currentState!.validate()) {
     //   print(_emailController.value.text);
     // }
@@ -105,8 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: double.infinity,
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(
-                                  context,
+                                NavigationService.goNamed(
                                   AppScreen.forgotPassword,
                                 );
                               },
@@ -141,8 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
-                                      Navigator.pushNamed(
-                                        context,
+                                      NavigationService.goNamed(
                                         AppScreen.register,
                                       );
                                     },
