@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:working_app/consts/colors.dart';
-import 'package:working_app/consts/images.dart';
 import 'package:working_app/widgets/guid/tour_guid.dart';
 
 class GuidTour extends StatefulWidget {

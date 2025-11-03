@@ -1,0 +1,1 @@
+enum CardSize { small, large }
