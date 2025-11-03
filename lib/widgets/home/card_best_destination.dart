@@ -13,10 +13,13 @@ class CardBestDestination extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ClipRRect(
-          borderRadius: BorderRadiusGeometry.circular(20),
-          child: Image.network(
-            'https://images.baodantoc.vn/uploads/2023/Thang-10/Ngay-13/Truong-Thuan/1.jpg',
+        Expanded(
+          child: ClipRRect(
+            borderRadius: BorderRadiusGeometry.circular(20),
+            child: Image.network(
+              'https://images.baodantoc.vn/uploads/2023/Thang-10/Ngay-13/Truong-Thuan/1.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         Gap(14),

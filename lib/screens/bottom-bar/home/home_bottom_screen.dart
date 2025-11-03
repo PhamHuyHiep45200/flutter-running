@@ -75,8 +75,17 @@ class _HomeBottomScreenState extends State<HomeBottomScreen> {
               height: 384,
               child: PageView(
                 controller: pageController,
+
                 children: destinations
-                    .map((e) => CardContainer(child: CardBestDestination()))
+                    .map(
+                      (e) => Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 10,
+                        ),
+                        child: CardContainer(child: CardBestDestination()),
+                      ),
+                    )
                     .toList(),
               ),
             ),

@@ -33,7 +33,7 @@ class _CardContainerState extends State<CardContainer> {
           ),
           boxShadow: [
             BoxShadow(
-              color: AppColor.lightGray.withOpacity(0.9), // màu bóng
+              color: AppColor.lightGray.withOpacity(1), // màu bóng
               spreadRadius: 1, // độ lan
               blurRadius: 5, // độ mờ
               offset: Offset(0, 3), // hướng bóng: (x, y)
