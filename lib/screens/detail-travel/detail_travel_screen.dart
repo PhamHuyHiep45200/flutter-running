@@ -7,6 +7,7 @@ import 'package:working_app/consts/font_size.dart';
 import 'package:working_app/extentions/widget_extentions.dart';
 import 'package:working_app/widgets/common/app_bar.dart';
 import 'package:working_app/widgets/common/button.dart';
+import 'package:working_app/widgets/detail-travel/detail_travel.dart';
 
 class DetailTravelScreen extends StatefulWidget {
   const DetailTravelScreen({super.key});
@@ -23,7 +24,7 @@ class _DetailTravelScreenState extends State<DetailTravelScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          Positioned(top: 40,child: AppBarTravel()),
+          Positioned(top: 40, child: AppBarTravel()),
           CarouselSlider(
             items: thumbnails
                 .map(
@@ -60,8 +61,8 @@ class _DetailTravelScreenState extends State<DetailTravelScreen> {
                     AppColor.lightText.withOpacity(1),
                     AppColor.lightText.withOpacity(0.2),
                   ],
-                  begin: AlignmentGeometry.bottomCenter,
-                  end: AlignmentGeometry.topCenter,
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
                 ),
               ),
               child: Column(
@@ -74,7 +75,7 @@ class _DetailTravelScreenState extends State<DetailTravelScreen> {
                         style: TextStyle(
                           color: AppColor.lightGray,
                           fontWeight: FontWeight.w600,
-                          fontSize: AppFontSize.s16
+                          fontSize: AppFontSize.s16,
                         ),
                       ).align(Alignment.topLeft),
                       Text(
@@ -85,7 +86,15 @@ class _DetailTravelScreenState extends State<DetailTravelScreen> {
                       ).align(Alignment.topLeft),
                     ],
                   ),
-                  ButtonTravel(text: 'Explore'),
+                  ButtonTravel(text: 'Explore').onTap(() {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      isScrollControlled: true,
+                      builder: (BuildContext context) {
+                        return DetailTravel();
+                      },
+                    );
+                  }),
                 ],
               ).padding(EdgeInsets.fromLTRB(20, 10, 20, 40)),
             ),
