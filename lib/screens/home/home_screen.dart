@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:working_app/consts/colors.dart';
+import 'package:working_app/screens/bottom-bar/calendar/calendar_bottm_screen.dart';
 import 'package:working_app/screens/bottom-bar/home/home_bottom_screen.dart';
 import 'package:working_app/widgets/common/app_header.dart';
 
@@ -18,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   );
   static const List<Widget> _widgetOptions = <Widget>[
     HomeBottomScreen(),
-    Text('Index 1: Business', style: optionStyle),
+    CalendarBottomScreen(),
     Text('Index 2: School', style: optionStyle),
   ];
 
