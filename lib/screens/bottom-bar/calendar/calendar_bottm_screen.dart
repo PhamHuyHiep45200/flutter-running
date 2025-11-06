@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:working_app/consts/colors.dart';
 import 'package:working_app/consts/font_size.dart';
+import 'package:working_app/extentions/widget_extentions.dart';
 import 'package:working_app/widgets/common/calendar.dart';
 import 'package:working_app/widgets/schedule/card_schedule.dart';
 
@@ -13,7 +14,7 @@ class CalendarBottomScreen extends StatefulWidget {
 }
 
 class _CalendarBottomScreenState extends State<CalendarBottomScreen> {
-  final List<int> list = [1, 2, 3];
+  final List<int> list = [1, 2, 3, 7, 8, 9, 4, 5, 6];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,18 +45,13 @@ class _CalendarBottomScreenState extends State<CalendarBottomScreen> {
             ],
           ),
           Gap(16),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.5,
-            child: GridView.count(
-              crossAxisCount: 1,
-              crossAxisSpacing: 16,
-              children: list.map((e) => CardSchedule()).toList(),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) =>
+                  CardSchedule().padding(EdgeInsets.only(bottom: 16)),
+              itemCount: list.length,
             ),
           ),
-          // CardSchedule(),
-          // CardSchedule(),
-          // CardSchedule(),
-          // CardSchedule(),
         ],
       ),
     );

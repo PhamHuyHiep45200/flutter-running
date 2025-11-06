@@ -50,7 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             AppHeader(),
-            Container(child: _widgetOptions.elementAt(_selectedIndex)),
+            Expanded(
+              child: _widgetOptions.elementAt(_selectedIndex),
+            ),
           ],
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:working_app/enum/card.dart';
 
 class CardContainer extends StatefulWidget {
   final CardSize? size;
+  final double? height;
   final Widget child;
   // final Function? onPress;
 
@@ -11,6 +12,7 @@ class CardContainer extends StatefulWidget {
     super.key,
     this.size = CardSize.large,
     required this.child,
+    this.height,
     // this.onPress,
   });
 
@@ -22,6 +24,7 @@ class _CardContainerState extends State<CardContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: widget.height,
       width: double.infinity,
       padding: EdgeInsets.all(widget.size == CardSize.large ? 14 : 12),
       decoration: BoxDecoration(

@@ -28,49 +28,49 @@ class CardSchedule extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            // SizedBox(
-            //   height: 80,
-            //   child: Column(
-            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       Row(
-            //         spacing: 6,
-            //         children: [
-            //           SvgPicture.asset(AppSvg.calendar),
-            //           Text(
-            //             '26 January 2022',
-            //             style: TextStyle(
-            //               color: AppColor.gray,
-            //               fontSize: AppFontSize.s13,
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //       Text(
-            //         'Niladri Reservoir',
-            //         style: TextStyle(
-            //           color: AppColor.lightText,
-            //           fontSize: AppFontSize.s16,
-            //           fontWeight: FontWeight.w500,
-            //         ),
-            //       ),
-            //       Row(
-            //         spacing: 6,
-            //         children: [
-            //           SvgPicture.asset(AppSvg.location),
-            //           Text(
-            //             'Darma, Kuningan',
-            //             style: TextStyle(
-            //               color: AppColor.gray,
-            //               fontSize: AppFontSize.s13,
-            //             ),
-            //           ),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
+            SizedBox(
+              height: 80,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    spacing: 6,
+                    children: [
+                      SvgPicture.asset(AppSvg.calendar),
+                      Text(
+                        '26 January 2022',
+                        style: TextStyle(
+                          color: AppColor.gray,
+                          fontSize: AppFontSize.s13,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    'Niladri Reservoir',
+                    style: TextStyle(
+                      color: AppColor.lightText,
+                      fontSize: AppFontSize.s16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  Row(
+                    spacing: 6,
+                    children: [
+                      SvgPicture.asset(AppSvg.location),
+                      Text(
+                        'Darma, Kuningan',
+                        style: TextStyle(
+                          color: AppColor.gray,
+                          fontSize: AppFontSize.s13,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
