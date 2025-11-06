@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:working_app/consts/colors.dart';
 import 'package:working_app/screens/bottom-bar/calendar/calendar_bottm_screen.dart';
 import 'package:working_app/screens/bottom-bar/home/home_bottom_screen.dart';
+import 'package:working_app/screens/bottom-bar/profile/profile_bottom.dart';
 import 'package:working_app/widgets/common/app_header.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeBottomScreen(),
     CalendarBottomScreen(),
-    Text('Index 2: School', style: optionStyle),
+    ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -38,9 +39,9 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
-            label: 'Business',
+            label: 'Calendar',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.school), label: 'School'),
+          BottomNavigationBarItem(icon: Icon(Icons.school), label: 'profile'),
         ],
         currentIndex: _selectedIndex,
         selectedItemColor: AppColor.primary,

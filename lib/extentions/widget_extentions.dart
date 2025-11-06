@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:working_app/consts/colors.dart';
 
 extension WidgetExtensions on Widget {
   Widget onTap(VoidCallback onTab, {BorderRadius? borderRadius}) {
@@ -40,6 +41,24 @@ extension WidgetExtensions on Widget {
           ? const Color.fromARGB(255, 0, 183, 255)
           : null,
       child: avatar.isEmpty ? Text(name?.substring(0, 1) ?? 'A') : null,
+    );
+  }
+
+  Widget shadow() {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: AppColor.white,
+        boxShadow: [
+          BoxShadow(
+            color: AppColor.lightText.withOpacity(0.05), // màu bóng
+            spreadRadius: 1, // độ lan
+            blurRadius: 5, // độ mờ
+            offset: Offset(0, 3), // hướng bóng: (x, y)
+          ),
+        ],
+      ),
+      child: this,
     );
   }
 }
